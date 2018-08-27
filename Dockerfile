@@ -18,4 +18,5 @@ VOLUME ["/tools"]
 RUN chmod +x /etc/service/distccd/run \ 
     && apt-get clean \ 
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
 ENV PATH="/tools/bin:${PATH}"
