@@ -1,4 +1,4 @@
-FROM phusion/baseimage:latest
+FROM ubuntu:16.04
 MAINTAINER Gaiar Baimuratov "gaiar@baimuratov.ru"
 LABEL description="Distcc RPI ARM cross-compiler node"
 

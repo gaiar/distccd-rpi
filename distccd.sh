@@ -1,8 +1,18 @@
 #!/bin/sh
+
+if [ -z "$NETWORK" ]; then
+	NETWORK=10.0.0.1/16
+fi
+
+if [ -z "$JOBS" ]; then
+	JOBS=2
+fi
+
 exec distccd \
-	--jobs 7 \
-	--allow 172.16.0.0/12 \
-	--allow 192.168.0.0/16 \
-	--allow 10.0.0.0/8 \
+	--allow=$NETWORK \
+	--jobs $JOBS \
+	--daemon \
+	--stats \
+	--verbose \
 	--log-stderr \
 	--no-detach >>/var/log/distccd.log 2>&1

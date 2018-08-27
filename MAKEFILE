@@ -3,3 +3,31 @@ build:
 
 run:
 	docker-compose up -d
+
+armv6l:
+	docker run -d \
+	--name distcc-server \
+	--env NETWORK=10.0.0.1/16 \
+	--env-file armv6l.env\
+	-p 3632:3632 \
+	--user distccd \
+	choldrim/distcc
+
+armv7l:
+	docker run -d \
+	--name distcc-server \
+	-e NETWORK=10.0.0.1/16 \
+	--env-file armv7l.env\
+	-p 3632:3632 \
+	--user distccd \
+	choldrim/distcc
+
+armv8l:
+	docker run -d \
+	--name distcc-server \
+	-e NETWORK=10.0.0.1/16 \
+	--env-file armv8l.env\
+	-p 3632:3632 \
+	--user \
+	distccd \
+	choldrim/distcc
