@@ -4,10 +4,13 @@ LABEL description="Distcc RPI ARM cross-compiler node"
 
 CMD ["/sbin/my_init"]
 
-RUN mkdir /etc/service/distccd \ 
-    && apt-get update \
-    && apt-get install -y \
-    && distcc
+RUN mkdir /etc/service/distccd \
+    && apt update \
+    && apt upgrade -y --no-install-recommends \
+    && apt install -y --no-install-recommends \
+    distcc \
+    && apt autoremove -y \
+    && apt clean
 
 ADD distccd.sh /etc/service/distccd/run 
 
