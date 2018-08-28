@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if [ -z "$NETWORK" ]; then
-	NETWORK=10.0.0.1/16
+	NETWORK=192.168.0.0/16
 fi
 
 if [ -z "$JOBS" ]; then
