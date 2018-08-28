@@ -16,7 +16,8 @@ armv6l:
 armv7l:
 	docker run -d \
 	--name distcc-server \
-	-e NETWORK=10.0.0.1/16 \
+	-v "path to your toolchain":"/tools":rw \
+	--env NETWORK=10.0.0.1/16 \
 	--env-file armv7l.env\
 	-p 3632:3632 \
 	--user distccd \
@@ -25,7 +26,7 @@ armv7l:
 armv8l:
 	docker run -d \
 	--name distcc-server \
-	-e NETWORK=10.0.0.1/16 \
+	--env NETWORK=10.0.0.1/16 \
 	--env-file armv8l.env\
 	-p 3632:3632 \
 	--user \
