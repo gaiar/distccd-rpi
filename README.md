@@ -1,4 +1,4 @@
-# distccd-rpi
+# [WIP] distccd-rpi
 
 ## Distributed compilation between multiples hosts to speed up rpi compilation process
 
