@@ -3,8 +3,8 @@ build:
 		-t gaiar/arm-distcc \
 		--compress .
 
-run:
-	docker-compose up -d
+all:
+	armv6 armv7 armv8
 
 armv6:
 	docker run -d \
