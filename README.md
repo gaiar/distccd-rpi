@@ -1,20 +1,21 @@
-#distccd-rpi
+# [WIP] distccd-rpi
 
-##Distributed compilation between multiples hosts to speed up rpi compilation process
+## Distributed compilation between multiples hosts to speed up rpi compilation process
 
 This docker container helps me to compile multiples projects on the raspberry pi faster (really faster) by distributing the compilation on differents host with a stronger cpu. The default behavior is to allow any ip from private subnets :10.0.0.0/8, 172.16.0.0/12,192.168.0.0/16. 
 
-###Quick start : 
+### Quick start : 
 
-You have to clone the [raspberry pi toolchain](https://github.com/raspberrypi/tools) somewhere or use your own : 
+You have to clone the [raspberry pi toolchain](https://github.com/raspberrypi/tools) somewhere or use your own built by [crosstool-ng](https://github.com/crosstool-ng/crosstool-ng): 
 
-`git clone --depth=1 https://github.com/raspberrypi/tools.git`
+Change paths in Makefile
 
-`docker run -d -p 3632:3632/tcp -v "path to your toolchain":"/tools":rw steevebrush/distccd-rpi:latest`
+`make build`
+`make armv6`
 
-example : `docker run -d -p 3632:3632/tcp -v "/home/nobody/tools/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/":"/tools":rw steevebrush/distccd-rpi:latest`
+example : ``
 
-###On the raspberry pi : 
+### On the raspberry pi : 
 
 install distcc 
 
